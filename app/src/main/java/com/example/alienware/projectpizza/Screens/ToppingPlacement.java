@@ -57,7 +57,6 @@ public class ToppingPlacement extends AppCompatActivity {
         public boolean onLongClick(View v) {
             ClipData data = ClipData.newPlainText("", "");
             DragShadow dragShadow = new DragShadow(v);
-
             v.startDrag(data, dragShadow, v, 0);
             return false;
         }
