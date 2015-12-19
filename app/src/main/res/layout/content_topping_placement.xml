@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/pizza_ref"
-        android:src="@mipmap/empty"
+        android:src="@mipmap/pizza_ref"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:visibility="visible" />
@@ -338,13 +338,51 @@
         android:layout_alignLeft="@+id/pizza_ref"
         android:layout_alignStart="@+id/pizza_ref"
         android:layout_alignRight="@+id/pizza_ref"
+        android:layout_alignEnd="@+id/pizza_ref"
+        android:visibility="visible" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_left_quart"
+        android:src="@mipmap/top_left_quart"
+        android:background="#00ffffff"
+        android:layout_alignTop="@+id/pizza_ref"
+        android:layout_alignLeft="@+id/pizza_ref"
+        android:layout_alignStart="@+id/pizza_ref" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_right_quart"
+        android:src="@mipmap/top_right_quart"
+        android:layout_above="@+id/bot_left_quart"
+        android:layout_alignRight="@+id/pizza_ref"
         android:layout_alignEnd="@+id/pizza_ref" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/bot_right_quart"
+        android:src="@mipmap/bot_right_quart"
+        android:layout_alignBottom="@+id/bot_left_quart"
+        android:layout_toRightOf="@+id/top_left_quart"
+        android:layout_toEndOf="@+id/top_left_quart" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bot_left_quart"
+        android:src="@mipmap/bot_left_quart"
+        android:layout_below="@+id/top_left_quart"
+        android:layout_toLeftOf="@+id/bot_right_quart"
+        android:layout_toStartOf="@+id/bot_right_quart" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/bot_half"
-        android:src="@mipmap/target_to_drag"
+        android:src="@mipmap/horizontal_halfs"
         android:background="#00ffffff"
         android:adjustViewBounds="false"
         android:layout_above="@+id/show_picked"
@@ -354,36 +392,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/left_half"
-        android:src="@mipmap/target_to_drag1"
+        android:src="@mipmap/vertical_halfs"
+        android:background="#00ffffff"
         android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/pizza_ref"
-        android:layout_alignStart="@+id/pizza_ref"
-        android:background="#00ffffff" />
+        android:layout_alignStart="@+id/pizza_ref" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/top_half"
-        android:src="@mipmap/target_to_drag"
-        android:layout_above="@+id/bot_half"
-        android:layout_alignLeft="@+id/bot_half"
-        android:layout_alignStart="@+id/bot_half" />
+        android:src="@mipmap/horizontal_halfs"
+        android:layout_above="@+id/bot_right_quart"
+        android:layout_centerHorizontal="true" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/right_half"
-        android:src="@mipmap/target_to_drag1"
+        android:src="@mipmap/vertical_halfs"
+        android:background="#00ffffff"
         android:layout_alignTop="@+id/left_half"
-        android:layout_alignRight="@+id/pizza_ref"
-        android:layout_alignEnd="@+id/pizza_ref"
-        android:background="#00ffffff" />
+        android:layout_alignLeft="@+id/top_right_quart"
+        android:layout_alignStart="@+id/top_right_quart" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/full_pizza"
-        android:src="@mipmap/taget_mid"
+        android:src="@mipmap/everything"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
