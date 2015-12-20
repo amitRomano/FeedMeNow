@@ -300,6 +300,9 @@ public class ToppingPlacement extends AppCompatActivity {
                     findViewById(R.id.full_pizza).setVisibility(View.INVISIBLE);
                     TextView target = (TextView) findViewById(R.id.botRightText);
                     TextView dragged = (TextView) event.getLocalState();
+                    if(dragged.getText().equals("top15")) {
+                        findViewById(R.id.peperoni4img).setVisibility(View.VISIBLE);
+                    }
                     if(target.getText().toString().equals("bot right:")) {
                         target.setText("bot right: " + dragged.getText());
                     }
@@ -487,7 +490,9 @@ public class ToppingPlacement extends AppCompatActivity {
                     TextView target = (TextView) findViewById(R.id.botRightText);
                     TextView target2 = (TextView) findViewById(R.id.topRightText);
                     TextView dragged = (TextView) event.getLocalState();
-
+                    if(dragged.getText().equals("top15")) {
+                        findViewById(R.id.peperoni4img).setVisibility(View.VISIBLE);
+                    }
                     if(target.getText().toString().equals("bot right:")) {
                         target.setText("bot right: " + dragged.getText());
                     }
@@ -552,7 +557,9 @@ public class ToppingPlacement extends AppCompatActivity {
                     TextView target = (TextView) findViewById(R.id.botRightText);
                     TextView target2 = (TextView) findViewById(R.id.botLeftText);
                     TextView dragged = (TextView) event.getLocalState();
-
+                    if(dragged.getText().equals("top15")) {
+                        findViewById(R.id.peperoni4img).setVisibility(View.VISIBLE);
+                    }
                     if(target.getText().toString().equals("bot right:")) {
                         target.setText("bot right: " + dragged.getText());
                     }
@@ -625,7 +632,9 @@ public class ToppingPlacement extends AppCompatActivity {
                     TextView target3 = (TextView) findViewById(R.id.topRightText);
                     TextView target4 = (TextView) findViewById(R.id.topLeftText);
                     TextView dragged = (TextView) event.getLocalState();
-
+                    if(dragged.getText().equals("top15")) {
+                        findViewById(R.id.peperoni4img).setVisibility(View.VISIBLE);
+                    }
                     if(target.getText().toString().equals("bot right:")) {
                         target.setText("bot right: " + dragged.getText());
                     }

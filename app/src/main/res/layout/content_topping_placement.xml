@@ -480,7 +480,7 @@
             android:id="@+id/show_picked"
             android:gravity="center"
             android:layout_gravity="center"
-            android:textSize="12dp"
+            android:textSize="17dp"
             android:visibility="visible"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
@@ -519,6 +519,15 @@
             android:src="@mipmap/on_bot_right_quart"
             android:layout_alignBottom="@+id/pizza_ref"
             android:layout_alignRight="@+id/pizza_ref"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/peperoni4img"
+            android:src="@mipmap/bot_right_qurt_peperoni"
+            android:layout_alignRight="@+id/pizza_ref"
+            android:layout_alignBottom="@+id/pizza_ref"
             android:visibility="invisible" />
 
     </RelativeLayout>

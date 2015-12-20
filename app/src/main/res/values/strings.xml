@@ -19,7 +19,7 @@
     <string name="beef">beef</string>
     <string name="anchovy">anchovy</string>
     <string name="yourToppingsAre">your toppings are:</string>
-    <string name="picked">drag the toppings to the pizza</string>
+    <string name="picked">drag to the pizza</string>
     <string name="draghere">Drag here</string>
     <string name="title_activity_choose_your_toppings">ChooseYourToppings</string>
     <string name="toppingsToShow"></string>
