@@ -49,4 +49,8 @@
     <string name="top22">top22</string>
     <string name="top23">top23</string>
     <string name="top24">top24</string>
+    <string name="top_left">top left: </string>
+    <string name="top_right">top right: </string>
+    <string name="bot_left">bot left: </string>
+    <string name="bot_right">bot right: </string>
 </resources>

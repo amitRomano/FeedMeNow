@@ -1,6 +1,8 @@
 package com.example.alienware.projectpizza.Screens;
 
+import android.app.ActionBar;
 import android.content.ClipData;
+import android.content.res.Configuration;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Point;
@@ -10,6 +12,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.alienware.projectpizza.R;
@@ -55,6 +59,8 @@ public class ToppingPlacement extends AppCompatActivity {
         findViewById(R.id.full_pizza).setOnDragListener(dropAll);
 
     }
+
+
     View.OnLongClickListener longListen = new View.OnLongClickListener() {
         @Override
         public boolean onLongClick(View v) {
@@ -99,15 +105,15 @@ public class ToppingPlacement extends AppCompatActivity {
                         Log.i("Drag Event", "exited");
                         break;
                     case DragEvent.ACTION_DROP:
-                        TextView target = (TextView) findViewById(R.id.show_picked);
+                        TextView target1 = (TextView) findViewById(R.id.topRightText);
                         TextView dragged = (TextView) event.getLocalState();
-                        if(target.getText().toString().equals("drag the toppings to the pizza")) {
-                            target.setText(dragged.getText());
+                        if(target1.getText().toString().equals("top right:")) {
+                            target1.setText("top right: " + dragged.getText());
                         }
-                        else if (target.getText().toString().contains(dragged.getText().toString())){
+                        else if (target1.getText().toString().contains(dragged.getText().toString())){
                         }
                         else {
-                            target.setText(target.getText().toString() +", top right quarter-" + dragged.getText().toString());
+                            target1.setText(target1.getText().toString() +", " + dragged.getText().toString());
                         }
                         break;
                 }
@@ -127,15 +133,15 @@ public class ToppingPlacement extends AppCompatActivity {
                     Log.i("Drag Event", "exited");
                     break;
                 case DragEvent.ACTION_DROP:
-                    TextView target = (TextView) findViewById(R.id.show_picked);
+                    TextView target = (TextView) findViewById(R.id.topLeftText);
                     TextView dragged = (TextView) event.getLocalState();
-                    if(target.getText().toString().equals("drag the toppings to the pizza")) {
-                        target.setText(dragged.getText());
+                    if(target.getText().toString().equals("top left:")) {
+                        target.setText("top left: " + dragged.getText());
                     }
                     else if (target.getText().toString().contains(dragged.getText().toString())){
                     }
                     else {
-                        target.setText(target.getText().toString() +", top left quarter-" + dragged.getText().toString());
+                        target.setText(target.getText().toString() +", " + dragged.getText().toString());
                     }
                     break;
             }
@@ -156,15 +162,15 @@ public class ToppingPlacement extends AppCompatActivity {
                     Log.i("Drag Event", "exited");
                     break;
                 case DragEvent.ACTION_DROP:
-                    TextView target = (TextView) findViewById(R.id.show_picked);
+                    TextView target = (TextView) findViewById(R.id.botLeftText);
                     TextView dragged = (TextView) event.getLocalState();
-                    if(target.getText().toString().equals("drag the toppings to the pizza")) {
-                        target.setText(dragged.getText());
+                    if(target.getText().toString().equals("bot left:")) {
+                        target.setText("bot left: " + dragged.getText());
                     }
                     else if (target.getText().toString().contains(dragged.getText().toString())){
                     }
                     else {
-                        target.setText(target.getText().toString() +", bot left quarter-" + dragged.getText().toString());
+                        target.setText(target.getText().toString() +", " + dragged.getText().toString());
                     }
                     break;
             }
@@ -185,15 +191,15 @@ public class ToppingPlacement extends AppCompatActivity {
                     Log.i("Drag Event", "exited");
                     break;
                 case DragEvent.ACTION_DROP:
-                    TextView target = (TextView) findViewById(R.id.show_picked);
+                    TextView target = (TextView) findViewById(R.id.botRightText);
                     TextView dragged = (TextView) event.getLocalState();
-                    if(target.getText().toString().equals("drag the toppings to the pizza")) {
-                        target.setText(dragged.getText());
+                    if(target.getText().toString().equals("bot right:")) {
+                        target.setText("bot right: " + dragged.getText());
                     }
                     else if (target.getText().toString().contains(dragged.getText().toString())){
                     }
                     else {
-                        target.setText(target.getText().toString() +", bot right quarter-" + dragged.getText().toString());
+                        target.setText(target.getText().toString() +", " + dragged.getText().toString());
                     }
                     break;
             }
@@ -213,16 +219,28 @@ public class ToppingPlacement extends AppCompatActivity {
                     Log.i("Drag Event", "exited");
                     break;
                 case DragEvent.ACTION_DROP:
-                    TextView target = (TextView) findViewById(R.id.show_picked);
+                    TextView target = (TextView) findViewById(R.id.botLeftText);
+                    TextView target2 = (TextView) findViewById(R.id.topLeftText);
                     TextView dragged = (TextView) event.getLocalState();
-                    if(target.getText().toString().equals("drag the toppings to the pizza")) {
-                        target.setText(dragged.getText());
+
+                    if(target.getText().toString().equals("bot left:")) {
+                        target.setText("bot left: " + dragged.getText());
                     }
                     else if (target.getText().toString().contains(dragged.getText().toString())){
                     }
                     else {
-                        target.setText(target.getText().toString() +", left half-" + dragged.getText().toString());
+                        target.setText(target.getText().toString() +", " + dragged.getText().toString());
                     }
+
+                    if(target2.getText().toString().equals("top left:")) {
+                        target2.setText("top left: " + dragged.getText());
+                    }
+                    else if (target2.getText().toString().contains(dragged.getText().toString())){
+                    }
+                    else {
+                        target2.setText(target2.getText().toString() +", " + dragged.getText().toString());
+                    }
+
                     break;
             }
             return true;
@@ -240,15 +258,26 @@ public class ToppingPlacement extends AppCompatActivity {
                     Log.i("Drag Event", "exited");
                     break;
                 case DragEvent.ACTION_DROP:
-                    TextView target = (TextView) findViewById(R.id.show_picked);
+                    TextView target = (TextView) findViewById(R.id.topRightText);
+                    TextView target2 = (TextView) findViewById(R.id.topLeftText);
                     TextView dragged = (TextView) event.getLocalState();
-                    if(target.getText().toString().equals("drag the toppings to the pizza")) {
-                        target.setText(dragged.getText());
+
+                    if(target.getText().toString().equals("top right:")) {
+                        target.setText("top right: " + dragged.getText());
                     }
                     else if (target.getText().toString().contains(dragged.getText().toString())){
                     }
                     else {
-                        target.setText(target.getText().toString() +", top half-" + dragged.getText().toString());
+                        target.setText(target.getText().toString() +", " + dragged.getText().toString());
+                    }
+
+                    if(target2.getText().toString().equals("top left:")) {
+                        target2.setText("top left: " + dragged.getText());
+                    }
+                    else if (target2.getText().toString().contains(dragged.getText().toString())){
+                    }
+                    else {
+                        target2.setText(target2.getText().toString() +", " + dragged.getText().toString());
                     }
                     break;
             }
@@ -267,15 +296,26 @@ public class ToppingPlacement extends AppCompatActivity {
                     Log.i("Drag Event", "exited");
                     break;
                 case DragEvent.ACTION_DROP:
-                    TextView target = (TextView) findViewById(R.id.show_picked);
+                    TextView target = (TextView) findViewById(R.id.botRightText);
+                    TextView target2 = (TextView) findViewById(R.id.topRightText);
                     TextView dragged = (TextView) event.getLocalState();
-                    if(target.getText().toString().equals("drag the toppings to the pizza")) {
-                        target.setText(dragged.getText());
+
+                    if(target.getText().toString().equals("bot right:")) {
+                        target.setText("bot right: " + dragged.getText());
                     }
                     else if (target.getText().toString().contains(dragged.getText().toString())){
                     }
                     else {
-                        target.setText(target.getText().toString() +", right half-" + dragged.getText().toString());
+                        target.setText(target.getText().toString() +", " + dragged.getText().toString());
+                    }
+
+                    if(target2.getText().toString().equals("top right:")) {
+                        target2.setText("top right: " + dragged.getText());
+                    }
+                    else if (target2.getText().toString().contains(dragged.getText().toString())){
+                    }
+                    else {
+                        target2.setText(target2.getText().toString() +", " + dragged.getText().toString());
                     }
                     break;
             }
@@ -294,15 +334,26 @@ public class ToppingPlacement extends AppCompatActivity {
                     Log.i("Drag Event", "exited");
                     break;
                 case DragEvent.ACTION_DROP:
-                    TextView target = (TextView) findViewById(R.id.show_picked);
+                    TextView target = (TextView) findViewById(R.id.botRightText);
+                    TextView target2 = (TextView) findViewById(R.id.botLeftText);
                     TextView dragged = (TextView) event.getLocalState();
-                    if(target.getText().toString().equals("drag the toppings to the pizza")) {
-                        target.setText(dragged.getText());
+
+                    if(target.getText().toString().equals("bot right:")) {
+                        target.setText("bot right: " + dragged.getText());
                     }
                     else if (target.getText().toString().contains(dragged.getText().toString())){
                     }
                     else {
-                        target.setText(target.getText().toString() +", bot half-" + dragged.getText().toString());
+                        target.setText(target.getText().toString() +", " + dragged.getText().toString());
+                    }
+
+                    if(target2.getText().toString().equals("bot left:")) {
+                        target2.setText("bot left: " + dragged.getText());
+                    }
+                    else if (target2.getText().toString().contains(dragged.getText().toString())){
+                    }
+                    else {
+                        target2.setText(target2.getText().toString() +", " + dragged.getText().toString());
                     }
                     break;
             }
@@ -321,15 +372,45 @@ public class ToppingPlacement extends AppCompatActivity {
                     Log.i("Drag Event", "exited");
                     break;
                 case DragEvent.ACTION_DROP:
-                    TextView target = (TextView) findViewById(R.id.show_picked);
+                    TextView target = (TextView) findViewById(R.id.botRightText);
+                    TextView target2 = (TextView) findViewById(R.id.botLeftText);
+                    TextView target3 = (TextView) findViewById(R.id.topRightText);
+                    TextView target4 = (TextView) findViewById(R.id.topLeftText);
                     TextView dragged = (TextView) event.getLocalState();
-                    if(target.getText().toString().equals("drag the toppings to the pizza")) {
-                        target.setText(dragged.getText());
+
+                    if(target.getText().toString().equals("bot right:")) {
+                        target.setText("bot right: " + dragged.getText());
                     }
                     else if (target.getText().toString().contains(dragged.getText().toString())){
                     }
                     else {
-                        target.setText(target.getText().toString() +", all-" + dragged.getText().toString());
+                        target.setText(target.getText().toString() +", " + dragged.getText().toString());
+                    }
+
+                    if(target2.getText().toString().equals("bot left:")) {
+                        target2.setText("bot left: " + dragged.getText());
+                    }
+                    else if (target2.getText().toString().contains(dragged.getText().toString())){
+                    }
+                    else {
+                        target2.setText(target2.getText().toString() +", " + dragged.getText().toString());
+                    }
+                    if(target3.getText().toString().equals("top right:")) {
+                        target3.setText("top right: " + dragged.getText());
+                    }
+                    else if (target3.getText().toString().contains(dragged.getText().toString())){
+                    }
+                    else {
+                        target3.setText(target3.getText().toString() +", " + dragged.getText().toString());
+                    }
+
+                    if(target4.getText().toString().equals("top left:")) {
+                        target4.setText("top left: " + dragged.getText());
+                    }
+                    else if (target4.getText().toString().contains(dragged.getText().toString())){
+                    }
+                    else {
+                        target4.setText(target4.getText().toString() +", " + dragged.getText().toString());
                     }
                     break;
             }
