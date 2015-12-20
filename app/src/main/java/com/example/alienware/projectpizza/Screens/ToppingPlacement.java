@@ -67,6 +67,7 @@ public class ToppingPlacement extends AppCompatActivity {
             ClipData data = ClipData.newPlainText("", "");
             DragShadow dragShadow = new DragShadow(v);
             v.startDrag(data, dragShadow, v, 0);
+
             return false;
         }
     };
@@ -77,6 +78,15 @@ public class ToppingPlacement extends AppCompatActivity {
         public DragShadow(View view) {
             super(view);
             greyBox = new ColorDrawable(Color.LTGRAY);
+            findViewById(R.id.bot_left_quart).setVisibility(View.VISIBLE);
+            findViewById(R.id.bot_right_quart).setVisibility(View.VISIBLE);
+            findViewById(R.id.top_left_quart).setVisibility(View.VISIBLE);
+            findViewById(R.id.top_right_quart).setVisibility(View.VISIBLE);
+            findViewById(R.id.bot_half).setVisibility(View.VISIBLE);
+            findViewById(R.id.top_half).setVisibility(View.VISIBLE);
+            findViewById(R.id.left_half).setVisibility(View.VISIBLE);
+            findViewById(R.id.right_half).setVisibility(View.VISIBLE);
+            findViewById(R.id.full_pizza).setVisibility(View.VISIBLE);
         }
         public void onProvideShadowMetrics(Point shadowSize, Point shadowTouchPoint) {
             View v = getView();
@@ -99,14 +109,39 @@ public class ToppingPlacement extends AppCompatActivity {
                 int dragEvent = event.getAction();
                 switch (dragEvent) {
                     case DragEvent.ACTION_DRAG_ENDED:
+                        findViewById(R.id.bot_left_quart).setVisibility(View.INVISIBLE);
+                        findViewById(R.id.bot_right_quart).setVisibility(View.INVISIBLE);
+                        findViewById(R.id.top_left_quart).setVisibility(View.INVISIBLE);
+                        findViewById(R.id.top_right_quart).setVisibility(View.INVISIBLE);
+                        findViewById(R.id.bot_half).setVisibility(View.INVISIBLE);
+                        findViewById(R.id.top_half).setVisibility(View.INVISIBLE);
+                        findViewById(R.id.left_half).setVisibility(View.INVISIBLE);
+                        findViewById(R.id.right_half).setVisibility(View.INVISIBLE);
+                        findViewById(R.id.full_pizza).setVisibility(View.INVISIBLE);
                         Log.i("Drag Event", "Entered");
                         break;
                     case DragEvent.ACTION_DRAG_EXITED:
                         Log.i("Drag Event", "exited");
+                        findViewById(R.id.onTopRightQuart).setVisibility(View.INVISIBLE);
+                        break;
+                    case DragEvent.ACTION_DRAG_ENTERED:
+                        Log.i("Drag Event", "entered");
+                        findViewById(R.id.onTopRightQuart).setVisibility(View.VISIBLE);
                         break;
                     case DragEvent.ACTION_DROP:
+                        findViewById(R.id.onTopRightQuart).setVisibility(View.INVISIBLE);
+                        findViewById(R.id.bot_left_quart).setVisibility(View.INVISIBLE);
+                        findViewById(R.id.bot_right_quart).setVisibility(View.INVISIBLE);
+                        findViewById(R.id.top_left_quart).setVisibility(View.INVISIBLE);
+                        findViewById(R.id.top_right_quart).setVisibility(View.INVISIBLE);
+                        findViewById(R.id.bot_half).setVisibility(View.INVISIBLE);
+                        findViewById(R.id.top_half).setVisibility(View.INVISIBLE);
+                        findViewById(R.id.left_half).setVisibility(View.INVISIBLE);
+                        findViewById(R.id.right_half).setVisibility(View.INVISIBLE);
+                        findViewById(R.id.full_pizza).setVisibility(View.INVISIBLE);
                         TextView target1 = (TextView) findViewById(R.id.topRightText);
                         TextView dragged = (TextView) event.getLocalState();
+
                         if(target1.getText().toString().equals("top right:")) {
                             target1.setText("top right: " + dragged.getText());
                         }
@@ -127,12 +162,36 @@ public class ToppingPlacement extends AppCompatActivity {
             int dragEvent = event.getAction();
             switch (dragEvent) {
                 case DragEvent.ACTION_DRAG_ENDED:
+                    findViewById(R.id.bot_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.left_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.right_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.full_pizza).setVisibility(View.INVISIBLE);
                     Log.i("Drag Event", "Entered");
                     break;
                 case DragEvent.ACTION_DRAG_EXITED:
                     Log.i("Drag Event", "exited");
+                    findViewById(R.id.onTopLeftQuart).setVisibility(View.INVISIBLE);
+                    break;
+                case DragEvent.ACTION_DRAG_ENTERED:
+                    Log.i("Drag Event", "entered");
+                    findViewById(R.id.onTopLeftQuart).setVisibility(View.VISIBLE);
                     break;
                 case DragEvent.ACTION_DROP:
+                    findViewById(R.id.onTopLeftQuart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.left_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.right_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.full_pizza).setVisibility(View.INVISIBLE);
                     TextView target = (TextView) findViewById(R.id.topLeftText);
                     TextView dragged = (TextView) event.getLocalState();
                     if(target.getText().toString().equals("top left:")) {
@@ -156,12 +215,36 @@ public class ToppingPlacement extends AppCompatActivity {
             int dragEvent = event.getAction();
             switch (dragEvent) {
                 case DragEvent.ACTION_DRAG_ENDED:
+                    findViewById(R.id.bot_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.left_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.right_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.full_pizza).setVisibility(View.INVISIBLE);
                     Log.i("Drag Event", "Entered");
                     break;
                 case DragEvent.ACTION_DRAG_EXITED:
                     Log.i("Drag Event", "exited");
+                    findViewById(R.id.onBotLeftQuart).setVisibility(View.INVISIBLE);
+                    break;
+                case DragEvent.ACTION_DRAG_ENTERED:
+                    Log.i("Drag Event", "entered");
+                    findViewById(R.id.onBotLeftQuart).setVisibility(View.VISIBLE);
                     break;
                 case DragEvent.ACTION_DROP:
+                    findViewById(R.id.onBotLeftQuart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.left_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.right_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.full_pizza).setVisibility(View.INVISIBLE);
                     TextView target = (TextView) findViewById(R.id.botLeftText);
                     TextView dragged = (TextView) event.getLocalState();
                     if(target.getText().toString().equals("bot left:")) {
@@ -185,12 +268,36 @@ public class ToppingPlacement extends AppCompatActivity {
             int dragEvent = event.getAction();
             switch (dragEvent) {
                 case DragEvent.ACTION_DRAG_ENDED:
+                    findViewById(R.id.bot_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.left_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.right_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.full_pizza).setVisibility(View.INVISIBLE);
                     Log.i("Drag Event", "Entered");
                     break;
                 case DragEvent.ACTION_DRAG_EXITED:
                     Log.i("Drag Event", "exited");
+                    findViewById(R.id.onBotRightQuart).setVisibility(View.INVISIBLE);
+                    break;
+                case DragEvent.ACTION_DRAG_ENTERED:
+                    Log.i("Drag Event", "entered");
+                    findViewById(R.id.onBotRightQuart).setVisibility(View.VISIBLE);
                     break;
                 case DragEvent.ACTION_DROP:
+                    findViewById(R.id.onBotRightQuart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.left_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.right_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.full_pizza).setVisibility(View.INVISIBLE);
                     TextView target = (TextView) findViewById(R.id.botRightText);
                     TextView dragged = (TextView) event.getLocalState();
                     if(target.getText().toString().equals("bot right:")) {
@@ -213,12 +320,39 @@ public class ToppingPlacement extends AppCompatActivity {
             int dragEvent = event.getAction();
             switch (dragEvent) {
                 case DragEvent.ACTION_DRAG_ENDED:
+                    findViewById(R.id.bot_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.left_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.right_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.full_pizza).setVisibility(View.INVISIBLE);
                     Log.i("Drag Event", "Entered");
                     break;
                 case DragEvent.ACTION_DRAG_EXITED:
                     Log.i("Drag Event", "exited");
+                    findViewById(R.id.onTopLeftQuart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.onBotLeftQuart).setVisibility(View.INVISIBLE);
+                    break;
+                case DragEvent.ACTION_DRAG_ENTERED:
+                    Log.i("Drag Event", "entered");
+                    findViewById(R.id.onTopLeftQuart).setVisibility(View.VISIBLE);
+                    findViewById(R.id.onBotLeftQuart).setVisibility(View.VISIBLE);
                     break;
                 case DragEvent.ACTION_DROP:
+                    findViewById(R.id.onTopLeftQuart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.onBotLeftQuart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.left_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.right_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.full_pizza).setVisibility(View.INVISIBLE);
                     TextView target = (TextView) findViewById(R.id.botLeftText);
                     TextView target2 = (TextView) findViewById(R.id.topLeftText);
                     TextView dragged = (TextView) event.getLocalState();
@@ -252,12 +386,39 @@ public class ToppingPlacement extends AppCompatActivity {
             int dragEvent = event.getAction();
             switch (dragEvent) {
                 case DragEvent.ACTION_DRAG_ENDED:
+                    findViewById(R.id.bot_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.left_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.right_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.full_pizza).setVisibility(View.INVISIBLE);
                     Log.i("Drag Event", "Entered");
                     break;
                 case DragEvent.ACTION_DRAG_EXITED:
                     Log.i("Drag Event", "exited");
+                    findViewById(R.id.onTopLeftQuart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.onTopRightQuart).setVisibility(View.INVISIBLE);
+                    break;
+                case DragEvent.ACTION_DRAG_ENTERED:
+                    Log.i("Drag Event", "entered");
+                    findViewById(R.id.onTopLeftQuart).setVisibility(View.VISIBLE);
+                    findViewById(R.id.onTopRightQuart).setVisibility(View.VISIBLE);
                     break;
                 case DragEvent.ACTION_DROP:
+                    findViewById(R.id.onTopLeftQuart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.onTopRightQuart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.left_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.right_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.full_pizza).setVisibility(View.INVISIBLE);
                     TextView target = (TextView) findViewById(R.id.topRightText);
                     TextView target2 = (TextView) findViewById(R.id.topLeftText);
                     TextView dragged = (TextView) event.getLocalState();
@@ -290,12 +451,39 @@ public class ToppingPlacement extends AppCompatActivity {
             int dragEvent = event.getAction();
             switch (dragEvent) {
                 case DragEvent.ACTION_DRAG_ENDED:
+                    findViewById(R.id.bot_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.left_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.right_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.full_pizza).setVisibility(View.INVISIBLE);
                     Log.i("Drag Event", "Entered");
                     break;
                 case DragEvent.ACTION_DRAG_EXITED:
                     Log.i("Drag Event", "exited");
+                    findViewById(R.id.onBotRightQuart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.onTopRightQuart).setVisibility(View.INVISIBLE);
+                    break;
+                case DragEvent.ACTION_DRAG_ENTERED:
+                    Log.i("Drag Event", "entered");
+                    findViewById(R.id.onBotRightQuart).setVisibility(View.VISIBLE);
+                    findViewById(R.id.onTopRightQuart).setVisibility(View.VISIBLE);
                     break;
                 case DragEvent.ACTION_DROP:
+                    findViewById(R.id.onBotRightQuart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.onTopRightQuart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.left_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.right_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.full_pizza).setVisibility(View.INVISIBLE);
                     TextView target = (TextView) findViewById(R.id.botRightText);
                     TextView target2 = (TextView) findViewById(R.id.topRightText);
                     TextView dragged = (TextView) event.getLocalState();
@@ -329,11 +517,38 @@ public class ToppingPlacement extends AppCompatActivity {
             switch (dragEvent) {
                 case DragEvent.ACTION_DRAG_ENDED:
                     Log.i("Drag Event", "Entered");
+                    findViewById(R.id.bot_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.left_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.right_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.full_pizza).setVisibility(View.INVISIBLE);
                     break;
                 case DragEvent.ACTION_DRAG_EXITED:
                     Log.i("Drag Event", "exited");
+                    findViewById(R.id.onBotRightQuart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.onBotLeftQuart).setVisibility(View.INVISIBLE);
+                    break;
+                case DragEvent.ACTION_DRAG_ENTERED:
+                    Log.i("Drag Event", "entered");
+                    findViewById(R.id.onBotRightQuart).setVisibility(View.VISIBLE);
+                    findViewById(R.id.onBotLeftQuart).setVisibility(View.VISIBLE);
                     break;
                 case DragEvent.ACTION_DROP:
+                    findViewById(R.id.onBotRightQuart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.onBotLeftQuart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.left_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.right_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.full_pizza).setVisibility(View.INVISIBLE);
                     TextView target = (TextView) findViewById(R.id.botRightText);
                     TextView target2 = (TextView) findViewById(R.id.botLeftText);
                     TextView dragged = (TextView) event.getLocalState();
@@ -367,11 +582,44 @@ public class ToppingPlacement extends AppCompatActivity {
             switch (dragEvent) {
                 case DragEvent.ACTION_DRAG_ENDED:
                     Log.i("Drag Event", "Entered");
+                    findViewById(R.id.bot_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.left_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.right_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.full_pizza).setVisibility(View.INVISIBLE);
                     break;
                 case DragEvent.ACTION_DRAG_EXITED:
                     Log.i("Drag Event", "exited");
+                    findViewById(R.id.onBotRightQuart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.onBotLeftQuart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.onTopLeftQuart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.onTopRightQuart).setVisibility(View.INVISIBLE);
+                    break;
+                case DragEvent.ACTION_DRAG_ENTERED:
+                    Log.i("Drag Event", "entered");
+                    findViewById(R.id.onBotRightQuart).setVisibility(View.VISIBLE);
+                    findViewById(R.id.onBotLeftQuart).setVisibility(View.VISIBLE);
+                    findViewById(R.id.onTopLeftQuart).setVisibility(View.VISIBLE);
+                    findViewById(R.id.onTopRightQuart).setVisibility(View.VISIBLE);
                     break;
                 case DragEvent.ACTION_DROP:
+                    findViewById(R.id.onBotRightQuart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.onBotLeftQuart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.onTopLeftQuart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.onTopRightQuart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_left_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_right_quart).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.bot_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.top_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.left_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.right_half).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.full_pizza).setVisibility(View.INVISIBLE);
                     TextView target = (TextView) findViewById(R.id.botRightText);
                     TextView target2 = (TextView) findViewById(R.id.botLeftText);
                     TextView target3 = (TextView) findViewById(R.id.topRightText);

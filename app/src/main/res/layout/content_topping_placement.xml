@@ -319,13 +319,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/show_picked"
-        android:id="@+id/relativeLayout">
+        android:id="@+id/relativeLayout"
+        android:visibility="visible">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/pizza_ref"
-            android:src="@mipmap/pizza_ref"
+            android:src="@mipmap/pizza_ref2"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"/>
 
@@ -335,6 +336,7 @@
             android:id="@+id/bot_left_quart"
             android:src="@mipmap/bot_left_quart"
             android:layout_alignBottom="@+id/pizza_ref"
+            android:visibility="invisible"
             android:layout_alignLeft="@+id/pizza_ref" />
 
         <ImageView
@@ -343,7 +345,8 @@
             android:id="@+id/bot_right_quart"
             android:src="@mipmap/bot_right_quart"
             android:layout_alignBottom="@+id/pizza_ref"
-            android:layout_alignRight="@+id/pizza_ref" />
+            android:layout_alignRight="@+id/pizza_ref"
+            android:visibility="invisible" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -351,7 +354,8 @@
             android:id="@+id/top_right_quart"
             android:src="@mipmap/top_right_quart"
             android:layout_alignTop="@+id/pizza_ref"
-            android:layout_alignRight="@+id/pizza_ref"/>
+            android:layout_alignRight="@+id/pizza_ref"
+            android:visibility="invisible" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -360,7 +364,8 @@
             android:src="@mipmap/top_left_quart"
             android:background="#00ffffff"
             android:layout_alignTop="@+id/pizza_ref"
-            android:layout_alignLeft="@+id/pizza_ref" />
+            android:layout_alignLeft="@+id/pizza_ref"
+            android:visibility="invisible" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -369,7 +374,8 @@
             android:src="@mipmap/vertical_halfs"
             android:background="#00ffffff"
             android:layout_centerVertical="true"
-            android:layout_alignRight="@+id/pizza_ref" />
+            android:layout_alignRight="@+id/pizza_ref"
+            android:visibility="invisible" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -377,7 +383,8 @@
             android:id="@+id/top_half"
             android:src="@mipmap/horizontal_halfs"
             android:layout_alignTop="@+id/pizza_ref"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -386,7 +393,8 @@
             android:src="@mipmap/vertical_halfs"
             android:background="#00ffffff"
             android:layout_centerVertical="true"
-            android:layout_alignLeft="@+id/pizza_ref" />
+            android:layout_alignLeft="@+id/pizza_ref"
+            android:visibility="invisible" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -395,7 +403,8 @@
             android:src="@mipmap/horizontal_halfs"
             android:background="#00ffffff"
             android:layout_alignBottom="@+id/pizza_ref"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -403,7 +412,8 @@
             android:id="@+id/full_pizza"
             android:src="@mipmap/everything"
           android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -474,6 +484,42 @@
             android:visibility="visible"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/onTopLeftQuart"
+            android:src="@mipmap/on_top_left_quart"
+            android:layout_alignTop="@+id/pizza_ref"
+            android:layout_alignLeft="@+id/pizza_ref"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/onTopRightQuart"
+            android:src="@mipmap/on_top_right_quart"
+            android:layout_alignRight="@+id/pizza_ref"
+            android:layout_alignTop="@+id/pizza_ref"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/onBotLeftQuart"
+            android:src="@mipmap/on_bot_left_quart"
+           android:layout_alignBottom="@+id/pizza_ref"
+            android:layout_alignLeft="@+id/pizza_ref"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/onBotRightQuart"
+            android:src="@mipmap/on_bot_right_quart"
+            android:layout_alignBottom="@+id/pizza_ref"
+            android:layout_alignRight="@+id/pizza_ref"
+            android:visibility="invisible" />
 
     </RelativeLayout>
 
