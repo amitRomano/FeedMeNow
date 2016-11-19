@@ -1,6 +1,5 @@
 package com.example.alienware.projectpizza.Screens;
 
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.View;
@@ -13,12 +12,20 @@ import java.util.List;
 /**
  * Created by michael on 18/11/2016.
  */
+ /*
+ this class get a toppingPlacement instant , and list of chosen ids of this instance ,
+ and rearrange the dragListener to match to the chosen ids
+ when entering event ACTION_DRAG_EXITED and ACTION_DRAG_ENTERED
+ this chosen ids will be VISIBLE / UNVISIBLE accordingly
+  */
 
-public class QuarterListener extends AppCompatActivity implements View.OnDragListener  {
+public class QuarterListener  implements View.OnDragListener  {
     List<Integer> quaeterIds;
+    ToppingPlacement toppingPlacement;
 
-    public QuarterListener(List<Integer> quaeterIds) {
+    public QuarterListener(ToppingPlacement toppingPlacement, List<Integer> quaeterIds) {
         this.quaeterIds = quaeterIds;
+        this.toppingPlacement = toppingPlacement;
     }
 
     @Override
@@ -26,15 +33,15 @@ public class QuarterListener extends AppCompatActivity implements View.OnDragLis
         int dragEvent = event.getAction();
         switch (dragEvent) {
             case DragEvent.ACTION_DRAG_ENDED:
-                findViewById(R.id.bot_left_quart).setVisibility(View.INVISIBLE);
-                findViewById(R.id.bot_right_quart).setVisibility(View.INVISIBLE);
-                findViewById(R.id.top_left_quart).setVisibility(View.INVISIBLE);
-                findViewById(R.id.top_right_quart).setVisibility(View.INVISIBLE);
-                findViewById(R.id.bot_half).setVisibility(View.INVISIBLE);
-                findViewById(R.id.top_half).setVisibility(View.INVISIBLE);
-                findViewById(R.id.left_half).setVisibility(View.INVISIBLE);
-                findViewById(R.id.right_half).setVisibility(View.INVISIBLE);
-                findViewById(R.id.full_pizza).setVisibility(View.INVISIBLE);
+                toppingPlacement.findViewById(R.id.bot_left_quart).setVisibility(View.INVISIBLE);
+                toppingPlacement.findViewById(R.id.bot_right_quart).setVisibility(View.INVISIBLE);
+                toppingPlacement.findViewById(R.id.top_left_quart).setVisibility(View.INVISIBLE);
+                toppingPlacement.findViewById(R.id.top_right_quart).setVisibility(View.INVISIBLE);
+                toppingPlacement.findViewById(R.id.bot_half).setVisibility(View.INVISIBLE);
+                toppingPlacement.findViewById(R.id.top_half).setVisibility(View.INVISIBLE);
+                toppingPlacement.findViewById(R.id.left_half).setVisibility(View.INVISIBLE);
+                toppingPlacement.findViewById(R.id.right_half).setVisibility(View.INVISIBLE);
+                toppingPlacement.findViewById(R.id.full_pizza).setVisibility(View.INVISIBLE);
             case DragEvent.ACTION_DRAG_EXITED:
                 Log.i("Drag Event", "exited");
                 makeAllIdsInvisible();
@@ -44,16 +51,16 @@ public class QuarterListener extends AppCompatActivity implements View.OnDragLis
                 makeAllIdsVisible();
                 break;
             case DragEvent.ACTION_DROP:
-                findViewById(R.id.bot_left_quart).setVisibility(View.INVISIBLE);
-                findViewById(R.id.bot_right_quart).setVisibility(View.INVISIBLE);
-                findViewById(R.id.top_left_quart).setVisibility(View.INVISIBLE);
-                findViewById(R.id.top_right_quart).setVisibility(View.INVISIBLE);
-                findViewById(R.id.bot_half).setVisibility(View.INVISIBLE);
-                findViewById(R.id.top_half).setVisibility(View.INVISIBLE);
-                findViewById(R.id.left_half).setVisibility(View.INVISIBLE);
-                findViewById(R.id.right_half).setVisibility(View.INVISIBLE);
-                findViewById(R.id.full_pizza).setVisibility(View.INVISIBLE);
-                TextView target1 = (TextView) findViewById(R.id.topRightText);
+                toppingPlacement.findViewById(R.id.bot_left_quart).setVisibility(View.INVISIBLE);
+                toppingPlacement.findViewById(R.id.bot_right_quart).setVisibility(View.INVISIBLE);
+                toppingPlacement.findViewById(R.id.top_left_quart).setVisibility(View.INVISIBLE);
+                toppingPlacement.findViewById(R.id.top_right_quart).setVisibility(View.INVISIBLE);
+                toppingPlacement.findViewById(R.id.bot_half).setVisibility(View.INVISIBLE);
+                toppingPlacement.findViewById(R.id.top_half).setVisibility(View.INVISIBLE);
+                toppingPlacement.findViewById(R.id.left_half).setVisibility(View.INVISIBLE);
+                toppingPlacement.findViewById(R.id.right_half).setVisibility(View.INVISIBLE);
+                toppingPlacement.findViewById(R.id.full_pizza).setVisibility(View.INVISIBLE);
+                TextView target1 = (TextView) toppingPlacement.findViewById(R.id.topRightText);
                 TextView dragged = (TextView) event.getLocalState();
 
                 if(target1.getText().toString().equals("top right:")) {
@@ -72,13 +79,13 @@ public class QuarterListener extends AppCompatActivity implements View.OnDragLis
 
     private void makeAllIdsVisible() {
         for(Integer id : quaeterIds){
-            findViewById(id).setVisibility(View.VISIBLE);
+            toppingPlacement.findViewById(id).setVisibility(View.VISIBLE);
         }
     }
 
     private void makeAllIdsInvisible() {
         for(Integer id : quaeterIds){
-            findViewById(id).setVisibility(View.INVISIBLE);
+            toppingPlacement.findViewById(id).setVisibility(View.INVISIBLE);
         }
     }
 }

@@ -22,6 +22,25 @@ import java.util.Arrays;
 
 public class ToppingPlacement extends AppCompatActivity {
 
+    View.OnDragListener dropTopRightQuart = new QuarterListener(this, Arrays.asList(R.id.onTopRightQuart));
+
+    View.OnDragListener dropTopLeftQuart = new QuarterListener(this, Arrays.asList(R.id.onTopLeftQuart));
+
+    View.OnDragListener dropBotLeftQuart = new QuarterListener(this, Arrays.asList(R.id.onBotLeftQuart));
+
+    View.OnDragListener dropBotRightQuart = new QuarterListener(this, Arrays.asList(R.id.onBotRightQuart));
+
+    View.OnDragListener dropLeftHalf = new QuarterListener(this, Arrays.asList(R.id.onTopLeftQuart, R.id.onBotLeftQuart));
+
+    View.OnDragListener dropTopHalf = new QuarterListener(this, Arrays.asList(R.id.onTopLeftQuart, R.id.onTopRightQuart));
+
+    View.OnDragListener dropRightHalf = new QuarterListener(this, Arrays.asList(R.id.onBotRightQuart, R.id.onTopRightQuart));
+
+    View.OnDragListener dropBotHalf = new QuarterListener(this, Arrays.asList(R.id.onBotRightQuart, R.id.onBotLeftQuart));
+
+    View.OnDragListener dropAll = new QuarterListener(this, Arrays.asList(R.id.onBotRightQuart, R.id.onBotLeftQuart, R.id.onTopLeftQuart, R.id.onTopRightQuart));
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,6 +109,7 @@ public class ToppingPlacement extends AppCompatActivity {
             findViewById(R.id.right_half).setVisibility(View.VISIBLE);
             findViewById(R.id.full_pizza).setVisibility(View.VISIBLE);
         }
+
         public void onProvideShadowMetrics(Point shadowSize, Point shadowTouchPoint) {
             View v = getView();
             int height = (int) v.getHeight();
@@ -105,22 +125,6 @@ public class ToppingPlacement extends AppCompatActivity {
             super.onDrawShadow(canvas);
         }
     }
-    View.OnDragListener dropTopRightQuart = new QuarterListener(Arrays.asList(R.id.onTopRightQuart));
 
-    View.OnDragListener dropTopLeftQuart = new QuarterListener(Arrays.asList(R.id.onTopLeftQuart));
-
-    View.OnDragListener dropBotLeftQuart = new QuarterListener(Arrays.asList(R.id.onBotLeftQuart));
-
-    View.OnDragListener dropBotRightQuart = new QuarterListener(Arrays.asList(R.id.onBotRightQuart));
-
-    View.OnDragListener dropLeftHalf = new QuarterListener(Arrays.asList(R.id.onTopLeftQuart, R.id.onBotLeftQuart ));
-
-    View.OnDragListener dropTopHalf =  new QuarterListener(Arrays.asList(R.id.onTopLeftQuart, R.id.onTopRightQuart));
-
-    View.OnDragListener dropRightHalf = new QuarterListener(Arrays.asList(R.id.onBotRightQuart, R.id.onTopRightQuart));
-
-    View.OnDragListener dropBotHalf = new QuarterListener(Arrays.asList(R.id.onBotRightQuart, R.id.onBotLeftQuart));
-
-    View.OnDragListener dropAll = new QuarterListener(Arrays.asList(R.id.onBotRightQuart, R.id.onBotLeftQuart, R.id.onTopLeftQuart, R.id.onTopRightQuart));
 
 }
