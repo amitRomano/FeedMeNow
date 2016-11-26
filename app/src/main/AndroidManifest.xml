@@ -36,6 +36,10 @@
         <activity android:name=".Screens.Pop"
             android:theme="@style/AppTheme.PopTheme">
         </activity>
+
+        <activity android:name=".Screens.ReceiptPop"
+            android:theme="@style/AppTheme.PopTheme">
+        </activity>
     </application>
 
 </manifest>
