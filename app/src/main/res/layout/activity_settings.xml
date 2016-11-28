@@ -33,12 +33,39 @@
         android:src="@android:drawable/ic_dialog_email" />
 
     <Button
-        android:text="first popup"
+        android:text="Personal Information"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button2"
+        android:id="@+id/PersonalInformationButton"
         app:layout_anchor="@+id/include"
         app:layout_anchorGravity="center_vertical|right"
         android:layout_gravity="bottom|left" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button5"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="center_vertical|right"
+        android:layout_gravity="top|left" />
+
+    <Button
+        android:text="Dislike Toppings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/DislikeToppingsButton"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="center_vertical|left"
+        android:layout_gravity="top|right" />
+
+    <Button
+        android:text="Dislike Drinks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/DislikeDrinksButton"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="center_vertical|left"
+        android:layout_gravity="bottom|right" />
 
 </android.support.design.widget.CoordinatorLayout>

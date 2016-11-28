@@ -33,7 +33,13 @@
             android:configChanges="orientation|screenSize">
         </activity>
 
-        <activity android:name=".Screens.Pop"
+        <activity android:name=".Screens.PersonalInformationPop"
+            android:theme="@style/AppTheme.PopTheme">
+        </activity>
+        <activity android:name=".Screens.DislikeDrinksPop"
+            android:theme="@style/AppTheme.PopTheme">
+        </activity>
+        <activity android:name=".Screens.DislikeToppingsPop"
             android:theme="@style/AppTheme.PopTheme">
         </activity>
 
