@@ -5,7 +5,11 @@ import java.util.List;
 /**
  * Created by user on 26/11/2015.
  */
-public class User {
+
+/*
+the user object as described below .. including the session itself
+ */
+public class UserObject {
 
    String name;
     String phone;
@@ -53,16 +57,12 @@ public class User {
         this.pizzaPlaceUserDontLike = pizzaPlaceUserDontLike;
     }
 
-    public User(String name, String phone, List<City> address, List<Drink> drinkUserLike, List<PizzaPlace> pizzaPlaceUserDontLike) {
+    public UserObject(String name, String phone, List<City> address, List<Drink> drinkUserLike, List<PizzaPlace> pizzaPlaceUserDontLike) {
         this.name = name;
         this.phone = phone;
         this.address = address;
         this.drinkUserLike = drinkUserLike;
         this.pizzaPlaceUserDontLike = pizzaPlaceUserDontLike;
-
-
-
-
     }
 
 
