@@ -18,7 +18,8 @@ import java.util.Map;
 
 public class ToppingPlacement extends AppCompatActivity {
 
-   public static final Map<Integer, Topping> toppingsMap = ImmutableMap.builder().put(R.id.onion, Topping.onion,)
+   public static final Map<Integer, Topping> toppingsMap = new ImmutableMap.Builder<Integer, Topping>()
+            .put(R.id.onion, Topping.onion)
             .put(R.id.mushrooms, Topping.mushrooms)
             .put(R.id.bacon, Topping.bacon)
             .put(R.id.corn, Topping.corn)
