@@ -18,7 +18,19 @@ import java.util.Map;
 
 public class ToppingPlacement extends AppCompatActivity {
 
-  
+   public static final Map<Integer, Topping> toppingsMap = ImmutableMap.builder().put(R.id.onion, Topping.onion,)
+            .put(R.id.mushrooms, Topping.mushrooms)
+            .put(R.id.bacon, Topping.bacon)
+            .put(R.id.corn, Topping.corn)
+            .put(R.id.pepperoni, Topping.peperroni)
+            .put(R.id.tuna, Topping.tuna)
+            .put(R.id.extraCheese, Topping.extraCheese)
+            .put(R.id.blueCheese, Topping.blueCheese)
+            .put(R.id.pineapple, Topping.pineapple)
+            .put(R.id.beef, Topping.beef)
+            .put(R.id.anchovy, Topping.anchovi)
+            .build();
+
 
 
     View.OnDragListener dropTopRightQuart = new QuarterListener(this, Arrays.asList(R.id.onTopRightQuart));
@@ -77,6 +89,13 @@ public class ToppingPlacement extends AppCompatActivity {
         findViewById(R.id.bot_half).setOnDragListener(dropBotHalf);
         findViewById(R.id.top_half).setOnDragListener(dropTopHalf);
         findViewById(R.id.full_pizza).setOnDragListener(dropAll);
+
+        inistateToppingsMap();
+
+
+    }
+
+    private void inistateToppingsMap() {
 
     }
 

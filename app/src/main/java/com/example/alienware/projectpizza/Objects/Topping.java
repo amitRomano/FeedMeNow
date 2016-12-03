@@ -14,7 +14,10 @@ public enum Topping {
     tuna("tuna.img.src"),
     blueCheese("blueCheese.img.src"),
     pineapple("pineapple.img.src"),
-    beef("beef.img.src");
+    beef("beef.img.src"),
+    corn("corn.img.src"),
+    peperroni("peperroni.img.src"),
+    blueCheese("bluecheese.img.src");
 
 
     private final String imgSrc;

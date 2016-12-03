@@ -20,11 +20,11 @@ import java.util.List;
   */
 
 public class QuarterListener  implements View.OnDragListener  {
-    List<Integer> quaeterIds;
+    List<Integer> quartersIds;
     ToppingPlacement toppingPlacement;
 
     public QuarterListener(ToppingPlacement toppingPlacement, List<Integer> quaeterIds) {
-        this.quaeterIds = quaeterIds;
+        this.quartersIds = quaeterIds;
         this.toppingPlacement = toppingPlacement;
     }
 
@@ -78,13 +78,13 @@ public class QuarterListener  implements View.OnDragListener  {
     }
 
     private void makeAllIdsVisible() {
-        for(Integer id : quaeterIds){
+        for(Integer id : quartersIds){
             toppingPlacement.findViewById(id).setVisibility(View.VISIBLE);
         }
     }
 
     private void makeAllIdsInvisible() {
-        for(Integer id : quaeterIds){
+        for(Integer id : quartersIds){
             toppingPlacement.findViewById(id).setVisibility(View.INVISIBLE);
         }
     }
