@@ -1,5 +1,7 @@
 package com.example.alienware.projectpizza.Objects;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,9 +11,11 @@ import java.util.List;
 /*
 the user object as described below .. including the session itself
  */
-public class UserObject {
+public class UserObject implements Serializable {
 
-   String name;
+    private static UserObject currentUserObject = new UserObject(); // this is the currentUserObject which we are using in this contex
+
+    String name;
     String phone;
     List <City> address;
     List <Drink> drinkUserLike;
@@ -57,6 +61,12 @@ public class UserObject {
         this.pizzaPlaceUserDontLike = pizzaPlaceUserDontLike;
     }
 
+    public UserObject() {
+        this.address = new ArrayList<>();
+        this.drinkUserLike = new ArrayList<>();
+        this.pizzaPlaceUserDontLike = new ArrayList<>();
+    }
+
     public UserObject(String name, String phone, List<City> address, List<Drink> drinkUserLike, List<PizzaPlace> pizzaPlaceUserDontLike) {
         this.name = name;
         this.phone = phone;
@@ -65,9 +75,11 @@ public class UserObject {
         this.pizzaPlaceUserDontLike = pizzaPlaceUserDontLike;
     }
 
+    public static UserObject getCurrentUserObject() {
+        return currentUserObject;
+    }
 
-
-
-
-
+    public static void setCurrentUserObject(UserObject currentUserObject) {
+        UserObject.currentUserObject = currentUserObject;
+    }
 }

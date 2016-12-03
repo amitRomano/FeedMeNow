@@ -1,5 +1,6 @@
 package com.example.alienware.projectpizza.Objects;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,9 +10,19 @@ import java.util.List;
 public class Order {
 
     List<Pizza> pizzasToOrder;
+    List<Drink> drinks;
 
-
-    public Order(List<Pizza> pizzasToOrder) {
-        this.pizzasToOrder = pizzasToOrder;
+    public Order() {
+        pizzasToOrder = new ArrayList<>();
+        drinks = new ArrayList<>();
     }
+    public void insertPizza(Pizza p){
+        pizzasToOrder.add(p);
+    }
+
+    public void insertDrink(Drink drink){
+        drinks.add(drink);
+    }
+
+
 }

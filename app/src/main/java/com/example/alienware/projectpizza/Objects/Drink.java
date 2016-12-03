@@ -5,37 +5,27 @@ package com.example.alienware.projectpizza.Objects;
  */
 public class Drink {
 
-    String name;
-    int size;
-    String image;
+    int drinkId;
+    String srcImage;
 
-    public Drink(String name, int size, String image) {
-        this.name = name;
-        this.size = size;
-        this.image = image;
+    public Drink(int drinkId, String srcImage) {
+        this.drinkId = drinkId;
+        this.srcImage = srcImage;
     }
 
-    public String getName() {
-        return name;
+    public int getDrinkId() {
+        return drinkId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDrinkId(int drinkId) {
+        this.drinkId = drinkId;
     }
 
-    public int getSize() {
-        return size;
+    public String getSrcImage() {
+        return srcImage;
     }
 
-    public void setSize(int size) {
-        this.size = size;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
+    public void setSrcImage(String srcImage) {
+        this.srcImage = srcImage;
     }
 }

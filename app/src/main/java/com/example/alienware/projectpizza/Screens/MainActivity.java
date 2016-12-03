@@ -1,5 +1,6 @@
 package com.example.alienware.projectpizza.Screens;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -12,6 +13,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.example.alienware.projectpizza.Objects.UserObject;
 import com.example.alienware.projectpizza.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -82,4 +84,17 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle state) {
+        super.onSaveInstanceState(state);
+        state.putSerializable("currentUser", UserObject.getCurrentUserObject());
+    }
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        UserObject currentUser = (UserObject) savedInstanceState.getSerializable("currentUser");
+        UserObject.setCurrentUserObject(currentUser);
+    }
+
 }
