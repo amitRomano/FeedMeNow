@@ -3,29 +3,24 @@ package com.example.alienware.projectpizza.Objects;
 /**
  * Created by Alienware on 11/22/2015.
  */
-public class Topping {
-    int id;
-    String imageSrc;
+public enum Topping {
+    olives,
+    anchovi,
+    tomatoes,
+    extraCheese,
+    tuna,
+    mushrooms,
+    bacon;
 
-    public Topping(int id, String imageSrc) {
-        this.id = id;
-        this.imageSrc = imageSrc;
+    String imgSrc;
+
+
+    public String getImgSrc() {
+        return imgSrc;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getImageSrc() {
-        return imageSrc;
-    }
-
-    public void setImageSrc(String imageSrc) {
-        this.imageSrc = imageSrc;
+    public void setImgSrc(String imgSrc) {
+        this.imgSrc = imgSrc;
     }
 }
 
