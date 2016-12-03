@@ -1,26 +1,25 @@
 package com.example.alienware.projectpizza.Screens;
 
-import android.app.ActionBar;
 import android.content.ClipData;
-import android.content.res.Configuration;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.DragEvent;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
+import com.example.alienware.projectpizza.Objects.Topping;
 import com.example.alienware.projectpizza.R;
+import com.google.common.collect.ImmutableMap;
 
 import java.util.Arrays;
+import java.util.Map;
 
 public class ToppingPlacement extends AppCompatActivity {
+
+  
+
 
     View.OnDragListener dropTopRightQuart = new QuarterListener(this, Arrays.asList(R.id.onTopRightQuart));
 
@@ -57,17 +56,17 @@ public class ToppingPlacement extends AppCompatActivity {
         findViewById(R.id.newTop10).setOnLongClickListener(longListen);
         findViewById(R.id.newTop11).setOnLongClickListener(longListen);
         findViewById(R.id.newTop12).setOnLongClickListener(longListen);
-        findViewById(R.id.newTop13).setOnLongClickListener(longListen);
-        findViewById(R.id.newTop14).setOnLongClickListener(longListen);
-        findViewById(R.id.newTop15).setOnLongClickListener(longListen);
-        findViewById(R.id.newTop16).setOnLongClickListener(longListen);
-        findViewById(R.id.newTop17).setOnLongClickListener(longListen);
-        findViewById(R.id.newTop18).setOnLongClickListener(longListen);
-        findViewById(R.id.newTop19).setOnLongClickListener(longListen);
-        findViewById(R.id.newTop20).setOnLongClickListener(longListen);
-        findViewById(R.id.newTop21).setOnLongClickListener(longListen);
-        findViewById(R.id.newTop22).setOnLongClickListener(longListen);
-        findViewById(R.id.newTop23).setOnLongClickListener(longListen);
+        findViewById(R.id.onion).setOnLongClickListener(longListen);
+        findViewById(R.id.mushrooms).setOnLongClickListener(longListen);
+        findViewById(R.id.bacon).setOnLongClickListener(longListen);
+        findViewById(R.id.corn).setOnLongClickListener(longListen);
+        findViewById(R.id.pepperoni).setOnLongClickListener(longListen);
+        findViewById(R.id.tuna).setOnLongClickListener(longListen);
+        findViewById(R.id.extraCheese).setOnLongClickListener(longListen);
+        findViewById(R.id.blueCheese).setOnLongClickListener(longListen);
+        findViewById(R.id.pineapple).setOnLongClickListener(longListen);
+        findViewById(R.id.beef).setOnLongClickListener(longListen);
+        findViewById(R.id.anchovy).setOnLongClickListener(longListen);
         findViewById(R.id.newTop24).setOnLongClickListener(longListen);
         findViewById(R.id.top_left_quart).setOnDragListener(dropTopLeftQuart);
         findViewById(R.id.top_right_quart).setOnDragListener(dropTopRightQuart);
