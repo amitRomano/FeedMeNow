@@ -4,10 +4,8 @@ import android.support.v7.widget.AppCompatTextView;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.View;
-import android.widget.TextView;
 
 import com.example.alienware.projectpizza.Objects.Pizza;
-import com.example.alienware.projectpizza.Objects.Quarter;
 import com.example.alienware.projectpizza.R;
 
 import java.util.List;
@@ -23,11 +21,11 @@ import java.util.List;
   */
 
 public class QuarterListener  implements View.OnDragListener  {
-    List<Integer> quartersIds;
+    List<Integer> onTopQuartersIds;
     ToppingPlacement toppingPlacement;
 
     public QuarterListener(ToppingPlacement toppingPlacement, List<Integer> quaeterIds) {
-        this.quartersIds = quaeterIds;
+        this.onTopQuartersIds = quaeterIds;
         this.toppingPlacement = toppingPlacement;
     }
 
@@ -77,14 +75,11 @@ public class QuarterListener  implements View.OnDragListener  {
 
                 AppCompatTextView localState = (AppCompatTextView)event.getLocalState();
 
-                for(Integer quarter : quartersIds){
+                for(Integer quarter : onTopQuartersIds){
                     toppingPlacement.getCurrentPizza().insertTopping(toppingPlacement.getQuarterFromId(quarter), ToppingPlacement.toppingsMap.get(localState.getId()));
                 }
 
-
-
-
-
+                
 
 //                TextView target1 = (TextView) toppingPlacement.findViewById(R.id.topRightText);
 //                TextView dragged = (TextView) event.getLocalState();
@@ -104,13 +99,13 @@ public class QuarterListener  implements View.OnDragListener  {
     }
 
     private void makeAllIdsVisible() {
-        for(Integer id : quartersIds){
+        for(Integer id : onTopQuartersIds){
             toppingPlacement.findViewById(id).setVisibility(View.VISIBLE);
         }
     }
 
     private void makeAllIdsInvisible() {
-        for(Integer id : quartersIds){
+        for(Integer id : onTopQuartersIds){
             toppingPlacement.findViewById(id).setVisibility(View.INVISIBLE);
         }
     }
