@@ -9,12 +9,16 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.example.alienware.projectpizza.Objects.Order;
+import com.example.alienware.projectpizza.Objects.Pizza;
+import com.example.alienware.projectpizza.Objects.Quarter;
 import com.example.alienware.projectpizza.Objects.Topping;
 import com.example.alienware.projectpizza.R;
 import com.google.common.collect.ImmutableMap;
 
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Set;
 
 public class ToppingPlacement extends AppCompatActivity {
 
@@ -32,25 +36,30 @@ public class ToppingPlacement extends AppCompatActivity {
             .put(R.id.anchovy, Topping.anchovi)
             .build();
 
+    public  Map<Integer,Quarter> quarterMap;
 
 
-    View.OnDragListener dropTopRightQuart = new QuarterListener(this, Arrays.asList(R.id.onTopRightQuart));
+    private static Order currentOrder;
 
-    View.OnDragListener dropTopLeftQuart = new QuarterListener(this, Arrays.asList(R.id.onTopLeftQuart));
+    private static Pizza currentPizza;
 
-    View.OnDragListener dropBotLeftQuart = new QuarterListener(this, Arrays.asList(R.id.onBotLeftQuart));
+    View.OnDragListener dropTopRightQuart = new QuarterListener(this, Arrays.asList(R.id.top_right_quart));
 
-    View.OnDragListener dropBotRightQuart = new QuarterListener(this, Arrays.asList(R.id.onBotRightQuart));
+    View.OnDragListener dropTopLeftQuart = new QuarterListener(this, Arrays.asList(R.id.top_left_quart));
 
-    View.OnDragListener dropLeftHalf = new QuarterListener(this, Arrays.asList(R.id.onTopLeftQuart, R.id.onBotLeftQuart));
+    View.OnDragListener dropBotLeftQuart = new QuarterListener(this, Arrays.asList(R.id.bot_left_quart));
 
-    View.OnDragListener dropTopHalf = new QuarterListener(this, Arrays.asList(R.id.onTopLeftQuart, R.id.onTopRightQuart));
+    View.OnDragListener dropBotRightQuart = new QuarterListener(this, Arrays.asList(R.id.bot_right_quart));
 
-    View.OnDragListener dropRightHalf = new QuarterListener(this, Arrays.asList(R.id.onBotRightQuart, R.id.onTopRightQuart));
+    View.OnDragListener dropLeftHalf = new QuarterListener(this, Arrays.asList(R.id.top_left_quart, R.id.bot_left_quart));
 
-    View.OnDragListener dropBotHalf = new QuarterListener(this, Arrays.asList(R.id.onBotRightQuart, R.id.onBotLeftQuart));
+    View.OnDragListener dropTopHalf = new QuarterListener(this, Arrays.asList(R.id.top_left_quart, R.id.top_right_quart));
 
-    View.OnDragListener dropAll = new QuarterListener(this, Arrays.asList(R.id.onBotRightQuart, R.id.onBotLeftQuart, R.id.onTopLeftQuart, R.id.onTopRightQuart));
+    View.OnDragListener dropRightHalf = new QuarterListener(this, Arrays.asList(R.id.bot_right_quart, R.id.top_right_quart));
+
+    View.OnDragListener dropBotHalf = new QuarterListener(this, Arrays.asList(R.id.bot_right_quart, R.id.bot_left_quart));
+
+    View.OnDragListener dropAll = new QuarterListener(this, Arrays.asList(R.id.bot_right_quart, R.id.bot_left_quart, R.id.top_left_quart, R.id.top_right_quart));
 
 
     @Override
@@ -93,6 +102,16 @@ public class ToppingPlacement extends AppCompatActivity {
 
         inistateToppingsMap();
 
+        currentOrder = new Order();
+
+        currentPizza = new Pizza();
+
+        quarterMap = ImmutableMap.of(R.id.top_left_quart, Quarter.topLeftQuart,
+                R.id.top_right_quart, Quarter.topRightQuart,
+                R.id.bot_left_quart, Quarter.bottomLeftQuart,
+                R.id.bot_right_quart, Quarter.bottomRightQuart
+
+            );
 
     }
 
@@ -146,4 +165,24 @@ public class ToppingPlacement extends AppCompatActivity {
     }
 
 
+    public Order getCurrentOrder() {
+        return currentOrder;
+    }
+
+    public void setCurrentOrder(Order currentOrder) {
+        this.currentOrder = currentOrder;
+    }
+
+
+    public static Pizza getCurrentPizza() {
+        return currentPizza;
+    }
+
+    public static void setCurrentPizza(Pizza currentPizza) {
+        ToppingPlacement.currentPizza = currentPizza;
+    }
+
+    public Quarter getQuarterFromId(int id){
+        return quarterMap.get(id);
+    }
 }

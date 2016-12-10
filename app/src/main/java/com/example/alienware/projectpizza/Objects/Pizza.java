@@ -1,5 +1,8 @@
 package com.example.alienware.projectpizza.Objects;
 
+import com.example.alienware.projectpizza.R;
+import com.google.common.collect.ImmutableMap;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -16,38 +19,32 @@ public class Pizza {
     private static final int topRight = 1;
     private static final int bottomLeft = 2;
     private static final int bottomRight = 3;
-    Set<Topping> topLeftQuart;
-    Set<Topping> topRightQuart;
-    Set<Topping> bottomLeftQuart;
-    Set<Topping> bottomRightQuart;
+    private Set<Topping> topLeftQuart;
+    private Set<Topping> topRightQuart;
+    private Set<Topping> bottomLeftQuart;
+    private Set<Topping> bottomRightQuart;
+
+    public final Map<Quarter,Set<Topping>> quarterMap;
+            //ImmutableMap.of(Quarter.topLeftQuart, top)
 
     public Pizza() {
+        topLeftQuart = new HashSet<>();
+        topRightQuart = new HashSet<>();
+        bottomLeftQuart = new HashSet<>();
+        bottomRightQuart = new HashSet<>();
+
+        quarterMap = ImmutableMap.of(Quarter.topLeftQuart, topLeftQuart ,
+              Quarter.topRightQuart, topRightQuart ,
+              Quarter.bottomLeftQuart, bottomLeftQuart,
+              Quarter.bottomRightQuart, bottomRightQuart
+                );
     }
 
-    public Pizza(Set<Topping> topLeftQuart, Set<Topping> topRightQuart, Set<Topping> bottomLeftQuart, Set<Topping> bottomRightQuart) {
-        this.topLeftQuart = topLeftQuart;
-        this.topRightQuart = topRightQuart;
-        this.bottomLeftQuart = bottomLeftQuart;
-        this.bottomRightQuart = bottomRightQuart;
-    }
 
-    public void insertTopping(int quarter, Topping topping){
-        switch (quarter){
-            case topLeft:
-                topLeftQuart.add(topping);
-                break;
-            case topRight:
-                topRightQuart.add(topping);
-                break;
-            case bottomRight:
-                bottomRightQuart.add(topping);
-                break;
-            case bottomLeft:
-                bottomLeftQuart.add(topping);
-                break;
-            default:
-                throw new IllegalArgumentException("the argument of quarter is not valid :" + quarter);
-        }
+
+
+    public void insertTopping(Quarter quarter, Topping topping){
+                quarterMap.get(quarter).add(topping);
     }
 
     @Override
@@ -75,4 +72,7 @@ public class Pizza {
         result = 31 * result + (bottomRightQuart != null ? bottomRightQuart.hashCode() : 0);
         return result;
     }
+
+
+
 }

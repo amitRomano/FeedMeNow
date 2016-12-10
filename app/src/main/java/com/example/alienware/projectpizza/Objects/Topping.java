@@ -12,7 +12,6 @@ public enum Topping {
     bacon("bacon.img.src"),
     onion("onion.img.src"),
     tuna("tuna.img.src"),
-    blueCheese("blueCheese.img.src"),
     pineapple("pineapple.img.src"),
     beef("beef.img.src"),
     corn("corn.img.src"),
@@ -21,7 +20,6 @@ public enum Topping {
 
 
     private final String imgSrc;
-
 
     Topping(String imgSrc){
         this.imgSrc = imgSrc;

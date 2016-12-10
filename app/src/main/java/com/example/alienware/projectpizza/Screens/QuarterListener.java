@@ -1,10 +1,13 @@
 package com.example.alienware.projectpizza.Screens;
 
+import android.support.v7.widget.AppCompatTextView;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.alienware.projectpizza.Objects.Pizza;
+import com.example.alienware.projectpizza.Objects.Quarter;
 import com.example.alienware.projectpizza.R;
 
 import java.util.List;
@@ -31,6 +34,7 @@ public class QuarterListener  implements View.OnDragListener  {
     @Override
     public boolean onDrag(View v, DragEvent event) {
         int dragEvent = event.getAction();
+        v.getId();
         switch (dragEvent) {
             case DragEvent.ACTION_DRAG_ENDED:
                 toppingPlacement.findViewById(R.id.bot_left_quart).setVisibility(View.INVISIBLE);
@@ -60,18 +64,40 @@ public class QuarterListener  implements View.OnDragListener  {
                 toppingPlacement.findViewById(R.id.left_half).setVisibility(View.INVISIBLE);
                 toppingPlacement.findViewById(R.id.right_half).setVisibility(View.INVISIBLE);
                 toppingPlacement.findViewById(R.id.full_pizza).setVisibility(View.INVISIBLE);
-                TextView target1 = (TextView) toppingPlacement.findViewById(R.id.topRightText);
-                TextView dragged = (TextView) event.getLocalState();
 
-                if(target1.getText().toString().equals("top right:")) {
-                    target1.setText("top right: " + dragged.getText());
+                //// TODO: 10/12/2016
+                // get id of the current topping
+                //add to the reservation pizza the topping that was added for every id of quarter
+
+
+
+                Pizza p = toppingPlacement.getCurrentPizza();
+
+
+
+                AppCompatTextView localState = (AppCompatTextView)event.getLocalState();
+
+                for(Integer quarter : quartersIds){
+                    toppingPlacement.getCurrentPizza().insertTopping(toppingPlacement.getQuarterFromId(quarter), ToppingPlacement.toppingsMap.get(localState.getId()));
                 }
-                else if (target1.getText().toString().contains(dragged.getText().toString())){
-                }
-                else {
-                    target1.setText(target1.getText().toString() +", " + dragged.getText().toString());
-                }
-                break;
+
+
+
+
+
+
+//                TextView target1 = (TextView) toppingPlacement.findViewById(R.id.topRightText);
+//                TextView dragged = (TextView) event.getLocalState();
+//
+//                if(target1.getText().toString().equals("top right:")) {
+//                    target1.setText("top right: " + dragged.getText());
+//                }
+//                else if (target1.getText().toString().contains(dragged.getText().toString())){
+//                }
+//                else {
+//                    target1.setText(target1.getText().toString() +", " + dragged.getText().toString());
+//                }
+//                break;
         }
         return true;
 
