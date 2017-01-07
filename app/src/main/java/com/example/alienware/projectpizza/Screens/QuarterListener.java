@@ -5,7 +5,8 @@ import android.util.Log;
 import android.view.DragEvent;
 import android.view.View;
 
-import com.example.alienware.projectpizza.Objects.Pizza;
+import com.example.alienware.projectpizza.Objects.Quarter;
+import com.example.alienware.projectpizza.Objects.Topping;
 import com.example.alienware.projectpizza.R;
 
 import java.util.List;
@@ -35,76 +36,55 @@ public class QuarterListener  implements View.OnDragListener  {
         v.getId();
         switch (dragEvent) {
             case DragEvent.ACTION_DRAG_ENDED:
-                toppingPlacement.findViewById(R.id.bot_left_quart).setVisibility(View.INVISIBLE);
-                toppingPlacement.findViewById(R.id.bot_right_quart).setVisibility(View.INVISIBLE);
-                toppingPlacement.findViewById(R.id.top_left_quart).setVisibility(View.INVISIBLE);
-                toppingPlacement.findViewById(R.id.top_right_quart).setVisibility(View.INVISIBLE);
-                toppingPlacement.findViewById(R.id.bot_half).setVisibility(View.INVISIBLE);
-                toppingPlacement.findViewById(R.id.top_half).setVisibility(View.INVISIBLE);
-                toppingPlacement.findViewById(R.id.left_half).setVisibility(View.INVISIBLE);
-                toppingPlacement.findViewById(R.id.right_half).setVisibility(View.INVISIBLE);
-                toppingPlacement.findViewById(R.id.full_pizza).setVisibility(View.INVISIBLE);
+                makeAllQuartersInvisible();
             case DragEvent.ACTION_DRAG_EXITED:
                 Log.i("Drag Event", "exited");
-                makeAllIdsInvisible();
+                makeAllRelevantQuartersInvisible();
                 break;
             case DragEvent.ACTION_DRAG_ENTERED:
                 Log.i("Drag Event", "entered");
-                makeAllIdsVisible();
+                makeAllRelevantQuartersVisible();
                 break;
             case DragEvent.ACTION_DROP:
-                toppingPlacement.findViewById(R.id.bot_left_quart).setVisibility(View.INVISIBLE);
-                toppingPlacement.findViewById(R.id.bot_right_quart).setVisibility(View.INVISIBLE);
-                toppingPlacement.findViewById(R.id.top_left_quart).setVisibility(View.INVISIBLE);
-                toppingPlacement.findViewById(R.id.top_right_quart).setVisibility(View.INVISIBLE);
-                toppingPlacement.findViewById(R.id.bot_half).setVisibility(View.INVISIBLE);
-                toppingPlacement.findViewById(R.id.top_half).setVisibility(View.INVISIBLE);
-                toppingPlacement.findViewById(R.id.left_half).setVisibility(View.INVISIBLE);
-                toppingPlacement.findViewById(R.id.right_half).setVisibility(View.INVISIBLE);
-                toppingPlacement.findViewById(R.id.full_pizza).setVisibility(View.INVISIBLE);
-
-                //// TODO: 10/12/2016
-                // get id of the current topping
-                //add to the reservation pizza the topping that was added for every id of quarter
-
-
-
-                Pizza p = toppingPlacement.getCurrentPizza();
-
+                makeAllQuartersInvisible();
 
 
                 AppCompatTextView localState = (AppCompatTextView)event.getLocalState();
 
                 for(Integer quarter : onTopQuartersIds){
-                    toppingPlacement.getCurrentPizza().insertTopping(toppingPlacement.getQuarterFromId(quarter), ToppingPlacement.toppingsMap.get(localState.getId()));
+                    //get the quarter object base on is id
+                    Quarter quarterObject = toppingPlacement.getQuarterFromId(quarter);
+                    // get the relevant topping from the toppingMap based on the id of the object we are dragging
+                    Topping topping = ToppingPlacement.toppingsMap.get(localState.getId());
+
+                    toppingPlacement.getCurrentPizza().insertTopping(quarterObject, topping);
                 }
+                break;
 
-                
-
-//                TextView target1 = (TextView) toppingPlacement.findViewById(R.id.topRightText);
-//                TextView dragged = (TextView) event.getLocalState();
-//
-//                if(target1.getText().toString().equals("top right:")) {
-//                    target1.setText("top right: " + dragged.getText());
-//                }
-//                else if (target1.getText().toString().contains(dragged.getText().toString())){
-//                }
-//                else {
-//                    target1.setText(target1.getText().toString() +", " + dragged.getText().toString());
-//                }
-//                break;
         }
         return true;
 
     }
 
-    private void makeAllIdsVisible() {
+    private void makeAllQuartersInvisible() {
+        toppingPlacement.findViewById(R.id.bot_left_quart).setVisibility(View.INVISIBLE);
+        toppingPlacement.findViewById(R.id.bot_right_quart).setVisibility(View.INVISIBLE);
+        toppingPlacement.findViewById(R.id.top_left_quart).setVisibility(View.INVISIBLE);
+        toppingPlacement.findViewById(R.id.top_right_quart).setVisibility(View.INVISIBLE);
+        toppingPlacement.findViewById(R.id.bot_half).setVisibility(View.INVISIBLE);
+        toppingPlacement.findViewById(R.id.top_half).setVisibility(View.INVISIBLE);
+        toppingPlacement.findViewById(R.id.left_half).setVisibility(View.INVISIBLE);
+        toppingPlacement.findViewById(R.id.right_half).setVisibility(View.INVISIBLE);
+        toppingPlacement.findViewById(R.id.full_pizza).setVisibility(View.INVISIBLE);
+    }
+
+    private void makeAllRelevantQuartersVisible() {
         for(Integer id : onTopQuartersIds){
             toppingPlacement.findViewById(id).setVisibility(View.VISIBLE);
         }
     }
 
-    private void makeAllIdsInvisible() {
+    private void makeAllRelevantQuartersInvisible() {
         for(Integer id : onTopQuartersIds){
             toppingPlacement.findViewById(id).setVisibility(View.INVISIBLE);
         }
